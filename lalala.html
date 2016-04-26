@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>吃啥？</title>
+</head>
+<body>
+	<h1 style="text-align: center;">所以今天晚上吃啥？</h1>
+	<button id='tap' style="display: block; width: 100px; height: 100px; background: orange; border-radius: 5px; font-size: 25px; margin:200px auto;">开始</button>
+	<script>
+	  var chisha = ['桃园面庄','延生','土八碗','老鸭煲','串串','咖喱饭','无界','猪脚饭','罐罐米线','黄焖鸡','排骨饭','采蝶轩','东北人家'];
+		var h1 = document.querySelector('h1');
+		var tap = document.querySelector('#tap');
+		var flag = 0;
+		var timer;
+		tap.addEventListener('click', function(){
+			if(tap.innerHTML == '开始'){
+				tap.innerHTML = '停下'
+				timer = setInterval(function(){	
+					h1.innerHTML = chisha[flag];
+					if(flag < chisha.length - 1)
+						flag++;
+					else
+						flag = 0;
+				},100);
+			}else if(tap.innerHTML == '停下'){
+				tap.innerHTML = '开始';
+				clearInterval(timer);
+			}
+		});
+	</script>
+</body>
+</html>
